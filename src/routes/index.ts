@@ -1,12 +1,12 @@
-import Home from "../pages/Home";
-import React from "react";
+import Home from '../pages/Home';
+import React from 'react';
 
 interface IRoute {
-  path: string
-  element: React.ReactNode
-  key: string
+  path: string;
+  element: JSX.Element;
+  key: string;
 }
 
 export const routes: IRoute[] = [
-  {path: '/', key: '/', element: Home()}
-]
+  { path: '/', element: React.createElement(Home), key: '/' }
+];

@@ -1,15 +1,22 @@
-import classes from "./App.module.scss";
-import {Route, Routes} from "react-router-dom";
-import {routes} from "./routes";
+import { Route, Routes } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { CssBaseline } from '@mui/material';
+import { ThemeProvider } from '@emotion/react';
+import { routes } from './routes';
+import { ThemeContext } from './context/ThemeContext';
 
-const App = () => {
+export const App = () => {
+  const { theme } = useContext(ThemeContext);
   return (
     <>
-      <Routes>
-        {routes.map(route => <Route {...route}/>)}
-      </Routes>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Routes>
+          {routes.map(route => (
+            <Route {...route} />
+          ))}
+        </Routes>
+      </ThemeProvider>
     </>
   );
 };
-
-export default App;
